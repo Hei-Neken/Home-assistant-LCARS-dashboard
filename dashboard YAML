@@ -1,0 +1,2840 @@
+type: custom:layout-card
+layout_type: custom:grid-layout
+layout:
+  grid-template-columns: 212px 410px 1fr
+  grid-gap: 1px
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-right
+        content: Current Info
+        theme: LCARS LOWER DECKS I
+      - type: custom:mod-card
+        card_mod:
+          class: middle-right
+        style: |
+          ha-card {
+            border-radius: 0px !important;
+            max-height: 800px;  /* Adjust to your preference */
+            overflow-y: auto;
+          }
+        card:
+          type: vertical-stack
+          card_mod:
+            class: middle-right
+          cards:
+            - type: tile
+              entity: person.mycastle
+              card_mod:
+                class: middle-right
+              name: Dan
+              color: primary
+              show_entity_picture: false
+              hide_state: false
+              vertical: false
+              tap_action:
+                action: navigate
+                navigation_path: map
+              features_position: down
+            - type: tile
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.dishwasher_power_minute_average
+                  above: 1
+              entity: sensor.dishwasher_power_minute_average
+              card_mod:
+                class: middle-right
+              name: Dishwasher
+              icon: mdi:run-fast
+              color: accent
+              hide_state: false
+              vertical: false
+              features_position: bottom
+            - type: tile
+              entity: sensor.dryer_power_minute_average
+              card_mod:
+                class: middle-right
+              name: Dryer
+              icon: mdi:run-fast
+              color: accent
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.dryer_power_minute_average
+                  above: 1
+            - type: tile
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: automation.oils_burner_on
+                  state: "on"
+              entity: sensor.oil_burner_power_minute_average
+              card_mod:
+                class: middle-right
+              name: Boiler
+              icon: mdi:run-fast
+              color: accent
+              vertical: false
+              features_position: bottom
+            - type: tile
+              entity: sensor.h5075_584f_humidity
+              card_mod:
+                class: middle-right
+              name: Main Bath
+              color: red
+              vertical: false
+              features_position: bottom
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_584f_humidity
+                  above: 70
+              grid_options:
+                columns: 6
+                rows: 1
+            - type: tile
+              entity: sensor.firehd10_battery_temperature
+              card_mod:
+                class: middle-right
+              name: "Fire HD 10 "
+              color: red
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.firehd10_battery_temperature
+                  above: 90
+            - type: tile
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.sm_s928u_battery_temperature
+                  above: 90
+              entity: sensor.sm_s928u_battery_temperature
+              card_mod:
+                class: middle-right
+              name: Dan Cellphone
+              color: red
+              vertical: false
+              features_position: bottom
+            - type: tile
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.front_door_battery
+                  below: 25
+              entity: sensor.front_door_battery
+              card_mod:
+                class: middle-right
+              name: Ring Doorbell
+              color: red
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+            - type: tile
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_3fe1_battery
+                  below: 25
+              card_mod:
+                class: middle-right
+              entity: sensor.h5075_3fe1_battery
+              name: My bed therm
+              vertical: false
+              features_position: bottom
+            - type: tile
+              entity: sensor.h5075_d878_battery
+              card_mod:
+                class: middle-right
+              name: Vienna therm
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_d878_battery
+                  below: 25
+            - type: tile
+              entity: sensor.h5075_e719_battery
+              card_mod:
+                class: middle-right
+              name: Max therm
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_e719_battery
+                  below: 25
+            - type: tile
+              entity: sensor.h5075_584f_battery
+              card_mod:
+                class: middle-right
+              name: Main Bath therm
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_584f_temperature
+                  below: 25
+            - type: tile
+              entity: sensor.h5075_6d12_battery
+              card_mod:
+                class: middle-right
+              name: Kitchen therm
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_6d12_battery
+                  below: 25
+            - type: tile
+              entity: sensor.h5075_3558_battery
+              card_mod:
+                class: middle-right
+              name: Lower Deck therm
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.h5075_3558_battery
+                  below: 25
+            - type: tile
+              entity: sensor.sm_s928u_battery_level
+              card_mod:
+                class: middle-right
+              name: Dan Cellphone
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.sm_s928u_battery_level
+                  below: 25
+            - type: tile
+              entity: sensor.air_filter_pm2_5
+              card_mod:
+                class: middle-right
+              name: Air Quality
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.air_filter_pm2_5
+                  above: 2
+            - type: tile
+              entity: sensor.astroweather_backyard_10m_wind_speed
+              card_mod:
+                class: middle-right
+              name: Wind Speed
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.astroweather_backyard_10m_wind_speed
+                  above: 10
+            - type: tile
+              entity: sensor.astroweather_backyard_10m_wind_direction
+              card_mod:
+                class: middle-right
+              name: Wind Direction
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.astroweather_backyard_10m_wind_speed
+                  above: 10
+            - type: tile
+              entity: sensor.astroweather_backyard_precipitation_amount
+              card_mod:
+                class: middle-right
+              name: Weather forcast
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: ""
+                  above: 1
+            - type: tile
+              entity: light.basement_lights
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.basement_lights
+                  state: "on"
+            - type: tile
+              entity: light.bath_mirror
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.bath_mirror
+                  state: "on"
+            - type: tile
+              entity: light.basement_fan
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.basement_fan
+                  state: "off"
+            - type: tile
+              entity: light.my_bedroom
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.my_bedroom
+                  state: "on"
+            - type: tile
+              entity: light.bathroom_fan
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.bathroom_fan
+                  state: "on"
+            - type: tile
+              entity: light.vienna_s_room
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: light.vienna_s_room
+                  state: "on"
+            - type: tile
+              entity: binary_sensor.octoprint_printing
+              card_mod:
+                class: middle-right
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: binary_sensor.octoprint_printing
+                  state: "on"
+            - type: tile
+              grid_options:
+                columns: 6
+                rows: 1
+              entity: sensor.octoprint_job_percentage
+              card_mod:
+                class: middle-right
+              name: Job Progress
+              vertical: false
+              features_position: bottom
+              visibility:
+                - condition: state
+                  entity: binary_sensor.octoprint_printing
+                  state: "on"
+            - type: tile
+              entity: humidifier.141836999993888_humidifier
+              card_mod:
+                class: middle-right
+              name: Basement Dehu
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity: humidifier.141836999993888_humidifier
+                      state: unavailable
+                    - condition: state
+                      entity: humidifier.141836999993888_humidifier
+                      state: "off"
+                    - condition: state
+                      entity: humidifier.141836999993888_humidifier
+                      state: unknown
+                    - condition: numeric_state
+                      entity: humidifier.141836999993888_humidifier
+                      above: 60
+            - type: tile
+              entity: media_player.living_room
+              card_mod:
+                class: middle-right
+              name: Sonos
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: state
+                  entity: media_player.living_room
+                  state: playing
+            - type: tile
+              entity: sensor.plant_sensor_5ab4_battery
+              card_mod:
+                class: middle-right
+              name: Hydrangers @Drive
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_5ab4_battery
+                  below: 25
+            - type: tile
+              entity: sensor.plant_sensor_ea06_battery
+              card_mod:
+                class: middle-right
+              name: Hydrangers @Spig
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_ea06_battery
+                  below: 25
+            - type: tile
+              entity: sensor.plant_sensor_53e7_battery
+              card_mod:
+                class: middle-right
+              name: Bamboo
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_53e7_battery
+                  below: 25
+            - type: tile
+              entity: sensor.plant_sensor_5ab4_moisture
+              card_mod:
+                class: middle-right
+              name: Hudrangers @drive
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_5ab4_moisture
+                  below: 30
+            - type: tile
+              entity: sensor.plant_sensor_ea06_moisture
+              card_mod:
+                class: middle-right
+              name: Hydrangers @spig
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_ea06_moisture
+                  below: 25
+            - type: tile
+              entity: sensor.plant_sensor_53e7_moisture
+              card_mod:
+                class: middle-right
+              name: Bamboo
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_53e7_moisture
+                  below: 25
+            - type: tile
+              entity: sensor.plant_sensor_5ab4_conductivity
+              card_mod:
+                class: middle-right
+              name: Hydrangers @drive
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_5ab4_conductivity
+                  below: 350
+            - type: tile
+              entity: sensor.plant_sensor_ea06_conductivity
+              card_mod:
+                class: middle-right
+              name: Hydrangers @spig
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_ea06_conductivity
+                  below: 350
+            - type: tile
+              entity: sensor.plant_sensor_53e7_conductivity
+              card_mod:
+                class: middle-right
+              name: Bamboo
+              vertical: false
+              features_position: bottom
+              grid_options:
+                columns: 6
+                rows: 1
+              visibility:
+                - condition: numeric_state
+                  entity: sensor.plant_sensor_53e7_conductivity
+                  below: 350
+      - type: custom:html-card
+        card_mod:
+          class: footer-right
+        content: 95-172
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:html-card
+                card_mod:
+                  class: header-left
+                content: Bridge overview
+                theme: LCARS LOWER DECKS II
+              - type: custom:clock-weather-card
+                entity: weather.forecast_home
+                sun_entity: sun.sun
+                weather_icon_type: line
+                animated_icon: true
+                forecast_days: 5
+                locale: en-GB
+                time_format: 24
+                date_pattern: P
+                hide_today_section: true
+                hide_forecast_section: false
+                card_mod:
+                  style: |
+                    .time, .date, .weather-icon {
+                      display: none !important;
+                    }
+                  class: middle-left
+                  theme: LCARS LOWER DECKS II
+              - type: custom:mini-graph-card
+                name: Tide Levels
+                entities:
+                  - entity: sensor.noaa_tide_factor
+                    name: Tide Height
+                hours_to_show: 24
+                points_per_hour: 1
+                line_width: 3
+                show:
+                  fill: fade
+                  extrema: true
+                  labels: true
+                icon: mdi:waves
+                card_mod:
+                  class: middle-left
+                  theme: LCARS LOWER DECKS II
+              - type: custom:html-card
+                card_mod:
+                  class: footer-left
+                  theme: LCARS LOWER DECKS II
+                content: 92-178
+          - type: vertical-stack
+            cards:
+              - type: custom:html-card
+                card_mod:
+                  class: header-right
+                content: "        57-561"
+              - type: custom:horizon-card
+                darkMode: true
+                showAzimuth: true
+                showElevation: true
+                card_mod:
+                  class: middle-right
+              - type: custom:cb-lcars-elbow-card
+                template:
+                  - cb-lcars-animation-cascade
+                variables:
+                  animation:
+                    cascade:
+                      pattern: niagara
+                      grid:
+                        gap: 1
+                      color:
+                        text: "#222"
+                        animation_start: "#26f"
+                        animation_end: "#def"
+                      text:
+                        font_size: 18
+                        font_weight: 500
+                  entity: sensor.astroweather_backyard_2m_temperature
+                  card:
+                    color:
+                      default: var(--lcars-beige)
+                    border:
+                      left:
+                        size: 0
+                      top:
+                        size: 0
+                      bottom:
+                        size: 0
+                      right:
+                        size: 27
+                      inner:
+                        factor: 1
+                        width: 0
+                cblcars_card_type: cb-lcars-header
+                show_advanced: true
+              - type: custom:cb-lcars-elbow-card
+                template:
+                  - cb-lcars-animation-cascade
+                variables:
+                  animation:
+                    cascade:
+                      pattern: default
+                      grid:
+                        gap: 1
+                      color:
+                        text: "#222"
+                        animation_start: "#26f"
+                        animation_end: "#def"
+                      text:
+                        font_size: 18
+                        font_weight: 500
+                  entity: sensor.living_room_temperature
+                  card:
+                    color:
+                      default: var(--lcars-beige)
+                    border:
+                      left:
+                        size: 0
+                      top:
+                        size: 0
+                      bottom:
+                        size: 0
+                      right:
+                        size: 27
+                      inner:
+                        factor: 1
+                        width: 0
+                cblcars_card_type: cb-lcars-header
+                show_advanced: true
+              - type: custom:cb-lcars-elbow-card
+                template:
+                  - cb-lcars-animation-cascade
+                variables:
+                  animation:
+                    cascade:
+                      pattern: niagara
+                      grid:
+                        gap: 1
+                      color:
+                        text: "#222"
+                        animation_start: "#26f"
+                        animation_end: "#def"
+                      text:
+                        font_size: 18
+                        font_weight: 500
+                  entity: sensor.h5075_3558_temperature
+                  card:
+                    color:
+                      default: var(--lcars-beige)
+                    border:
+                      left:
+                        size: 0
+                      top:
+                        size: 0
+                      bottom:
+                        size: 0
+                      right:
+                        size: 27
+                      inner:
+                        factor: 1
+                        width: 0
+                cblcars_card_type: cb-lcars-header
+                show_advanced: true
+              - type: custom:cb-lcars-elbow-card
+                template:
+                  - cb-lcars-animation-cascade
+                variables:
+                  animation:
+                    cascade:
+                      pattern: default
+                      grid:
+                        gap: 1
+                      color:
+                        text: "#222"
+                        animation_start: "#26f"
+                        animation_end: "#def"
+                      text:
+                        font_size: 18
+                        font_weight: 500
+                  entity: sensor.h5075_d878_temperature
+                  card:
+                    color:
+                      default: var(--lcars-beige)
+                    border:
+                      left:
+                        size: 0
+                      top:
+                        size: 0
+                      bottom:
+                        size: 0
+                      right:
+                        size: 27
+                      inner:
+                        factor: 1
+                        width: 0
+                cblcars_card_type: cb-lcars-header
+                show_advanced: true
+              - type: custom:html-card
+                card_mod:
+                  class: footer-right
+                  theme: LCARS LOWER DECKS II
+                content: 92-178
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:cb-lcars-multimeter-card
+                template:
+                  - cb-lcars-animation-geo-array
+                enable_resize_observer: true
+                variables:
+                  entity_match_header: true
+                  entity_match_slider: false
+                  entity_match_gauge: false
+                  entity_match_slider_start: false
+                  entity_match_slider_end: false
+                  _mode: gauge
+                  _vertical: false
+                  _slider_mode: brightness
+                  gauge:
+                    sub_meter:
+                      show_sub_meter: true
+                    range:
+                      enabled: true
+                    label:
+                      font_size: "12"
+                    color:
+                      background: {}
+                  slider_track:
+                    bar_thickness: 10
+                    gap: 5
+                    bar_border_radius: 0
+                  animation:
+                    geo_array:
+                      animation_axis: col
+                      grid:
+                        num_cols: 3
+                        num_rows: 1
+                  card:
+                    color:
+                      background:
+                        default: var(--lcars-almond-creme)
+                    border:
+                      left:
+                        size: 75
+                      top:
+                        left_radius: 30
+                      bottom: {}
+                    height: "50"
+                    min_height: "50"
+                  entity: sensor.astroweather_backyard_2m_temperature
+                  label: 15-743
+                  text:
+                    label:
+                      font_size: "12"
+                      font_weight: 200
+                      justify: flex-start
+                      align_items: flex-start
+                      padding:
+                        top: 1
+                        left: 20
+                    name:
+                      font_size: "12"
+                      justify: flex-end
+                      align_items: flex-end
+                      padding:
+                        bottom: 0
+                        right: 5
+                  _show_unit_of_measurement: true
+                  slider:
+                    thumb:
+                      enabled: false
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                show_label: true
+                show_advanced: true
+                show_name: true
+                show_state: true
+                name: Outside Temp
+              - type: custom:cb-lcars-multimeter-card
+                template:
+                  - cb-lcars-animation-geo-array
+                enable_resize_observer: true
+                variables:
+                  entity_match_header: true
+                  entity_match_slider: false
+                  entity_match_gauge: false
+                  entity_match_slider_start: false
+                  entity_match_slider_end: false
+                  _mode: gauge
+                  _vertical: false
+                  _slider_mode: brightness
+                  gauge:
+                    sub_meter:
+                      show_sub_meter: true
+                    range:
+                      enabled: true
+                    label:
+                      font_size: "12"
+                    color:
+                      background: {}
+                  slider_track:
+                    bar_thickness: 10
+                    gap: 5
+                    bar_border_radius: 0
+                  animation:
+                    geo_array:
+                      animation_axis: col
+                      grid:
+                        num_cols: 3
+                        num_rows: 1
+                  card:
+                    color:
+                      background:
+                        default: var(--lcars-almond-creme)
+                    border:
+                      left:
+                        size: 75
+                      bottom: {}
+                    height: "50"
+                    min_height: "50"
+                  entity: sensor.living_room_temperature
+                  label: 31-673
+                  text:
+                    label:
+                      font_size: "12"
+                      font_weight: 200
+                      justify: flex-start
+                      align_items: flex-start
+                      padding:
+                        top: 1
+                        left: 20
+                    name:
+                      font_size: "12"
+                      justify: flex-end
+                      align_items: flex-end
+                      padding:
+                        bottom: 1
+                        right: 5
+                  _show_unit_of_measurement: true
+                  slider:
+                    thumb:
+                      enabled: false
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                show_label: true
+                show_advanced: true
+                show_name: true
+                show_state: true
+                name: Indoor Temp
+              - type: custom:cb-lcars-multimeter-card
+                template:
+                  - cb-lcars-animation-geo-array
+                enable_resize_observer: true
+                variables:
+                  entity_match_header: false
+                  entity_match_slider: false
+                  entity_match_gauge: false
+                  entity_match_slider_start: false
+                  entity_match_slider_end: false
+                  _mode: gauge
+                  _vertical: false
+                  _slider_mode: brightness
+                  gauge:
+                    sub_meter:
+                      show_sub_meter: true
+                    range:
+                      enabled: true
+                  slider_track:
+                    bar_thickness: 10
+                    gap: 1
+                    bar_border_radius: 30
+                    gradient_start_color: var(--lcars-bluey)
+                    gradient_end_color: var(--lcars-dark-red)
+                  animation:
+                    geo_array:
+                      animation_axis: col
+                      grid:
+                        num_cols: 3
+                        num_rows: 1
+                  entity: climate.living_room
+                  attribute: temperature
+                  card:
+                    height: "50"
+                    min_height: "50"
+                    border:
+                      left:
+                        size: 75
+                      bottom:
+                        left_radius: 30
+                    color:
+                      background: {}
+                  label: 31-719
+                  text:
+                    label:
+                      font_weight: 200
+                      font_size: "12"
+                      justify: flex-start
+                      align_items: flex-start
+                      padding:
+                        top: 1
+                        left: 20
+                    name:
+                      font_size: "12"
+                      justify: flex-end
+                      align_items: flex-end
+                      padding:
+                        right: 5
+                        bottom: 1
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                show_label: true
+                show_advanced: true
+                show_name: true
+                show_state: true
+                name: Heat
+                show_units: true
+                numeric_precision: 0
+              - type: custom:background-graph-entities
+                entities:
+                  - entity: sensor.astroweather_backyard_10m_wind_speed
+                    name: Wind speed
+                  - entity: sensor.astroweather_backyard_10m_wind_direction
+                    name: Wind direction
+                hours_to_show: 45
+                line_length: long
+                curve: natural
+                line_color: "#ede111"
+                title: ""
+                update_interval: 60
+                line_width: 3
+                line_glow: true
+                line_opacity: 0.225
+                color_thresholds:
+                  - value: 10
+                    color: "#e6a50c"
+                  - value: 20
+                    color: "#ed682a"
+                  - value: 30
+                    color: "#e02626"
+                tile_style: true
+  - type: vertical-stack
+    cards:
+      - type: custom:html-card
+        card_mod:
+          class: header-contained
+        content: Cameras
+      - type: horizontal-stack
+        cards:
+          - camera_view: auto
+            fit_mode: cover
+            type: picture-glance
+            image: https://demo.home-assistant.io/stub_config/kitchen.png
+            entities: []
+            camera_image: camera.front_door_live_view
+            card_mod:
+              class: middle-left
+            content: "# middle-left"
+          - camera_view: live
+            fit_mode: cover
+            type: picture-glance
+            image: https://demo.home-assistant.io/stub_config/kitchen.png
+            entities: []
+            camera_image: camera.octoprint_camera
+            card_mod:
+              class: middle-right
+            content: "# middle-left"
+      - type: custom:html-card
+        card_mod:
+          class: footer-contained
+        content: 97-273
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 70px 1fr
+          grid-gap: 1px
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:html-card
+                card_mod:
+                  class: header-left
+                content: "91"
+              - type: custom:cb-lcars-button-card
+                primary: Stack 1
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_1') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "25"
+                    height: "50"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_1') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_1
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:multimedia
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 2
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_2') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_2') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_2
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:lamps
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 3
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_3') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_3') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_3
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:home-thermometer
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 4
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_4') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_4') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_4
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:weather-partly-cloudy
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 5
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_5') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_5') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_5
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:printer-3d
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 6
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_6') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_6') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_6
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:robot-vacuum
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 7
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_7') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_7') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_7
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:sprout
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 8
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_8') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_8') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_8
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:access-point-network
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 9
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_9') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_9') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_9
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:power
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:cb-lcars-button-card
+                primary: Stack 10
+                cblcars_card_type: cb-lcars-button-picard
+                show_label: false
+                variables:
+                  label: Media
+                  text:
+                    label:
+                      align: center
+                      align_items: center
+                  icon:
+                    justify: flex-start
+                    size: "26"
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_10') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                      background:
+                        default: transparent
+                  card:
+                    width: "250"
+                    border:
+                      top:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      bottom:
+                        size: 0
+                        left_radius: 0
+                        right_radius: 0
+                      right:
+                        size: 0
+                      left:
+                        size: 25
+                    color:
+                      default: >-
+                        [[[ return (states['input_select.stack_selector'] &&
+                        states['input_select.stack_selector'].state ===
+                        'stack_10') ? 'var(--lcars-beige)' :
+                        'var(--lcars-primary-gray)'; ]]]
+                    blink:
+                      state_on:
+                        blink_delay: 2.7
+                        blink_seconds: 3.6
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  target:
+                    entity_id: input_select.stack_selector
+                  data:
+                    option: stack_10
+                double_tap_action:
+                  action: none
+                hold_action:
+                  action: more-info
+                show_icon: true
+                icon: mdi:space-station
+                show_advanced: true
+                enable_resize_observer: true
+                template:
+                  - cb-lcars-state-on-blink
+              - type: custom:html-card
+                card_mod:
+                  class: footer-left
+                content: "-175"
+          - type: vertical-stack
+            cards:
+              - type: custom:html-card
+                card_mod:
+                  class: header-right
+                content: Content
+              - type: vertical-stack
+                cards:
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.stack_selector
+                        state: stack_2
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-capped
+                              show_label: true
+                              variables:
+                                label: 31-218
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      active: var(--lcars-alert-blue)
+                                      inactive: var(--lcars-card-top-color)
+                                      unavailable: >-
+                                        var(--lcars-ui-app-header-background-color)
+                                      default: >-
+                                        var(--lcars-ui-app-header-background-color)
+                                text:
+                                  label:
+                                    font_weight: 200
+                                    font_size: "12"
+                                    justify: flex-start
+                                    align_items: flex-start
+                                    align: left
+                                    padding:
+                                      top: 0
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    align_items: flex-end
+                                    align: right
+                                    justify: flex-end
+                                    padding:
+                                      right: 10
+                                      bottom: 0
+                                entity: light.tv_leds
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-alert-white)
+                                    ripple_opacity: 0.2
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: TV LED
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-picard-filled
+                              show_label: true
+                              variables:
+                                label: 31-218
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                text:
+                                  label:
+                                    align_items: flex-start
+                                    align: center
+                                    font_size: "12"
+                                    font_weight: 200
+                                    padding:
+                                      top: 0
+                                    justify: flex-end
+                                  name:
+                                    font_size: "12"
+                                    justify: flex-start
+                                    align_items: flex-end
+                                    padding:
+                                      bottom: 0
+                                      left: 10
+                                entity: light.living_room_light
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-alert-white)
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Lamp
+                            - type: custom:cb-lcars-multimeter-card
+                              card_mod:
+                                class: middle-right
+                              template:
+                                - cb-lcars-animate-press
+                              enable_resize_observer: true
+                              variables:
+                                entity_match_header: true
+                                entity_match_slider: false
+                                entity_match_gauge: false
+                                entity_match_slider_start: true
+                                entity_match_slider_end: true
+                                _mode: slider
+                                _vertical: false
+                                _slider_mode: brightness
+                                gauge:
+                                  sub_meter:
+                                    show_sub_meter: true
+                                  range:
+                                    enabled: true
+                                slider_track:
+                                  bar_border_radius: 0
+                                  bar_thickness: 5
+                                  gap: 1
+                                animation:
+                                  geo_array:
+                                    animation_axis: col
+                                    grid:
+                                      num_cols: 3
+                                      num_rows: 1
+                                card:
+                                  border:
+                                    left:
+                                      size: 86
+                                    top:
+                                      size: 5
+                                      right_radius: 0
+                                    bottom:
+                                      size: 5
+                                      right_radius: 0
+                                    right:
+                                      size: 25
+                                  height: "50"
+                                  width: "290"
+                                  blink:
+                                    state_on:
+                                      blink_delay: 2
+                                      blink_seconds: 5
+                                    state_off:
+                                      blink_seconds: 15
+                                      blink_delay: 3
+                                  color:
+                                    background:
+                                      active: var(--lcars-almond-creme)
+                                      inactive: var(--lcars-alt-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                      default: var(--lcars-alt-blue)
+                                label: Ceiling-LV
+                                text:
+                                  label:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    align: left
+                                    align_items: flex-end
+                                    justify: center
+                                    padding:
+                                      top: 0
+                                      left: 20
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    padding:
+                                      left: 5
+                                      bottom: 9
+                                    justify: flex-start
+                                    align_items: flex-end
+                                _slider_step: 10
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-almond)
+                                    ripple_opacity: 0.2
+                                entity: light.levds_dimmer_95ce_light
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: none
+                              show_label: true
+                              show_advanced: true
+                              show_name: true
+                              name: 31-187
+                              show_state: false
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-capped
+                              show_label: true
+                              variables:
+                                label: 21-671
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                      active: var(--lcars-butter)
+                                      inactive: var(--lcars-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                  blink:
+                                    state_on:
+                                      blink_delay: 1
+                                      blink_seconds: 2.5
+                                text:
+                                  label:
+                                    justify: flex-start
+                                    align_items: flex-start
+                                    align: left
+                                    font_size: "12"
+                                    font_weight: 200
+                                    padding:
+                                      top: 1
+                                      left: 20
+                                  name:
+                                    font_size: "12"
+                                    justify: flex-end
+                                    align_items: flex-end
+                                    align: right
+                                    padding:
+                                      bottom: 1
+                                      right: 5
+                                entity: light.kitchen_lights
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.8
+                                    ripple_color: var(--lcars-alert-white)
+                              tap_action:
+                                action: perform-action
+                                perform_action: light.toggle
+                                target:
+                                  device_id:
+                                    - f6083e58f15d2c00b55bece4b0b27833
+                                    - 620bcb4bf2d2951940228306ef23ed1b
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Countertop
+                            - type: custom:cb-lcars-multimeter-card
+                              template:
+                                - cb-lcars-animation-geo-array
+                                - cb-lcars-animate-press
+                              enable_resize_observer: true
+                              variables:
+                                entity_match_header: true
+                                entity_match_slider: false
+                                entity_match_gauge: false
+                                entity_match_slider_start: true
+                                entity_match_slider_end: true
+                                _mode: slider
+                                _vertical: false
+                                _slider_mode: brightness
+                                gauge:
+                                  sub_meter:
+                                    show_sub_meter: true
+                                  range:
+                                    enabled: true
+                                slider_track:
+                                  bar_border_radius: 0
+                                  bar_thickness: 5
+                                  gap: 1
+                                animation:
+                                  geo_array:
+                                    animation_axis: col
+                                    grid:
+                                      num_cols: 3
+                                      num_rows: 1
+                                entity: light.levds_dimmer_95cc_light
+                                card:
+                                  border:
+                                    left:
+                                      size: 86
+                                    top:
+                                      size: 5
+                                      right_radius: 0
+                                    bottom:
+                                      size: 5
+                                      right_radius: 0
+                                    right:
+                                      size: 25
+                                  height: "50"
+                                  width: "290"
+                                  blink:
+                                    state_on:
+                                      blink_delay: 2
+                                      blink_seconds: 5
+                                    state_off:
+                                      blink_seconds: 15
+                                      blink_delay: 3
+                                  color:
+                                    background:
+                                      active: var(--lcars-beige)
+                                      inactive: var(--lcars-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                label: kitchen
+                                text:
+                                  label:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    justify: flex-end
+                                    align: right
+                                    align_items: flex-end
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 200
+                                    justify: flex-start
+                                    align_items: flex-end
+                                    align: left
+                                    padding:
+                                      left: 5
+                                      bottom: 8
+                                _slider_step: 10
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.1
+                                    ripple_color: var(--lcars-alert-white)
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: none
+                              show_label: true
+                              show_advanced: true
+                              show_name: true
+                              name: 21-741
+                              show_state: false
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-capped
+                              show_label: true
+                              variables:
+                                label: 91-101
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                      active: var(--lcars-coral)
+                                text:
+                                  label:
+                                    justify: flex-start
+                                    align_items: flex-start
+                                    align: left
+                                    font_size: "12"
+                                    font_weight: 200
+                                    padding:
+                                      left: 20
+                                      top: 1
+                                  name:
+                                    font_size: "12"
+                                    justify: flex-end
+                                    align_items: flex-end
+                                    align: right
+                                    padding:
+                                      right: 5
+                                      bottom: 1
+                                entity: light.bath_mirror
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-alert-white)
+                                    ripple_opacity: 0.1
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Bath Mirror
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-bullet
+                              show_label: true
+                              variables:
+                                label: 91-015
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                      active: var(--lcars-alt-green)
+                                text:
+                                  label:
+                                    font_weight: 200
+                                    font_size: "12"
+                                    justify: flex-end
+                                    align_items: flex-start
+                                    align: left
+                                    padding:
+                                      top: 1
+                                      right: 20
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    justify: flex-start
+                                    align_items: flex-end
+                                    padding:
+                                      bottom: 1
+                                      left: 5
+                                    align: left
+                                entity: light.bathroom_fan
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-alert-white)
+                                    ripple_opacity: 0.1
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Bath Fan
+                            - type: custom:cb-lcars-multimeter-card
+                              template:
+                                - cb-lcars-animate-press
+                              enable_resize_observer: true
+                              variables:
+                                entity_match_header: true
+                                entity_match_slider: false
+                                entity_match_gauge: false
+                                entity_match_slider_start: true
+                                entity_match_slider_end: true
+                                _mode: slider
+                                _vertical: false
+                                _slider_mode: brightness
+                                gauge:
+                                  sub_meter:
+                                    show_sub_meter: true
+                                  range:
+                                    enabled: true
+                                slider_track:
+                                  bar_border_radius: 0
+                                  bar_thickness: 5
+                                  gap: 1
+                                animation:
+                                  geo_array:
+                                    animation_axis: col
+                                    grid:
+                                      num_cols: 3
+                                      num_rows: 1
+                                card:
+                                  border:
+                                    left:
+                                      size: 86
+                                    top:
+                                      size: 5
+                                      right_radius: 0
+                                      left_radius: 30
+                                    bottom:
+                                      size: 5
+                                      right_radius: 0
+                                      left_radius: 30
+                                    right:
+                                      size: 25
+                                  height: "50"
+                                  width: "290"
+                                  blink:
+                                    state_on:
+                                      blink_delay: 2
+                                      blink_seconds: 5
+                                    state_off:
+                                      blink_seconds: 15
+                                      blink_delay: 3
+                                  color:
+                                    background:
+                                      active: var(--lcars-almond-creme)
+                                      inactive: var(--lcars-alt-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                      default: var(--lcars-alt-blue)
+                                label: Vienna
+                                text:
+                                  label:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    align: left
+                                    align_items: flex-end
+                                    justify: center
+                                    padding:
+                                      top: 0
+                                      left: 20
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    padding:
+                                      left: 20
+                                      bottom: 9
+                                    justify: flex-start
+                                    align_items: flex-end
+                                _slider_step: 10
+                                animations:
+                                  ripple:
+                                    ripple_color: var(--lcars-almond)
+                                    ripple_opacity: 0.2
+                                entity: light.vienna_s_room
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: none
+                              show_label: true
+                              show_advanced: true
+                              show_name: true
+                              name: 78-512
+                              show_state: false
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-capped
+                              show_label: true
+                              variables:
+                                label: 53-428
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                      active: var(--lcars-butter)
+                                      inactive: var(--lcars-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                  blink:
+                                    state_on:
+                                      blink_delay: 1
+                                      blink_seconds: 2.5
+                                  border:
+                                    top:
+                                      right_radius: 0
+                                      left_radius: 30
+                                    bottom:
+                                      right_radius: 0
+                                      left_radius: 30
+                                text:
+                                  label:
+                                    justify: flex-start
+                                    align_items: flex-start
+                                    align: left
+                                    font_size: "12"
+                                    font_weight: 200
+                                    padding:
+                                      top: 1
+                                      left: 20
+                                  name:
+                                    font_size: "12"
+                                    justify: flex-end
+                                    align_items: flex-end
+                                    align: right
+                                    padding:
+                                      bottom: 1
+                                      right: 20
+                                entity: null
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.8
+                                    ripple_color: var(--lcars-alert-white)
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Printer
+                            - type: custom:cb-lcars-multimeter-card
+                              template:
+                                - cb-lcars-animate-press
+                              enable_resize_observer: true
+                              variables:
+                                entity_match_header: true
+                                entity_match_slider: false
+                                entity_match_gauge: false
+                                entity_match_slider_start: true
+                                entity_match_slider_end: true
+                                _mode: slider
+                                _vertical: false
+                                _slider_mode: brightness
+                                gauge:
+                                  sub_meter:
+                                    show_sub_meter: true
+                                  range:
+                                    enabled: true
+                                slider_track:
+                                  bar_border_radius: 0
+                                  bar_thickness: 5
+                                  gap: 1
+                                animation:
+                                  geo_array:
+                                    animation_axis: col
+                                    grid:
+                                      num_cols: 3
+                                      num_rows: 1
+                                card:
+                                  border:
+                                    left:
+                                      size: 86
+                                    top:
+                                      size: 5
+                                      right_radius: 0
+                                    bottom:
+                                      size: 5
+                                      right_radius: 0
+                                    right:
+                                      size: 25
+                                  height: "50"
+                                  width: "290"
+                                  blink:
+                                    state_on:
+                                      blink_delay: 2
+                                      blink_seconds: 5
+                                    state_off:
+                                      blink_seconds: 15
+                                      blink_delay: 3
+                                  color:
+                                    background:
+                                      inactive: var(--lcars-alt-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                      active: var(--lcars-cornflower)
+                                label: My Bedroom
+                                text:
+                                  label:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    align: left
+                                    align_items: flex-end
+                                    justify: center
+                                    padding:
+                                      left: 15
+                                      bottom: 1
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    padding:
+                                      left: 5
+                                      bottom: 9
+                                    justify: flex-start
+                                    align_items: flex-end
+                                _slider_step: 10
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.1
+                                    ripple_color: var(--lcars-alert-white)
+                                entity: light.my_bedroom
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: none
+                              show_label: true
+                              show_advanced: true
+                              show_name: true
+                              name: 53-419
+                              show_state: false
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              cblcars_card_type: cb-lcars-button-lozenge
+                              show_label: true
+                              variables:
+                                label: 18-437
+                                card:
+                                  height: "50"
+                                  color:
+                                    background:
+                                      default: transparent
+                                      inactive: var(--lcars-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                      active: var(--lcars-galaxy)
+                                  blink:
+                                    state_on:
+                                      blink_delay: 1
+                                      blink_seconds: 2.5
+                                  border:
+                                    top:
+                                      left_radius: 30
+                                      right_radius: 0
+                                    bottom:
+                                      right_radius: 0
+                                      left_radius: 30
+                                text:
+                                  label:
+                                    justify: flex-start
+                                    align_items: flex-start
+                                    align: left
+                                    font_size: "12"
+                                    font_weight: 200
+                                    padding:
+                                      top: 1
+                                      left: 20
+                                  name:
+                                    font_size: "12"
+                                    justify: flex-end
+                                    align_items: flex-end
+                                    align: right
+                                    padding:
+                                      bottom: 1
+                                      right: 20
+                                entity: light.basement_lights
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.8
+                                    ripple_color: var(--lcars-alert-white)
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: more-info
+                              show_advanced: true
+                              show_name: true
+                              template:
+                                - cb-lcars-animate-press
+                              name: Basement
+                            - type: custom:cb-lcars-multimeter-card
+                              template:
+                                - cb-lcars-animate-press
+                              enable_resize_observer: true
+                              variables:
+                                entity_match_header: true
+                                entity_match_slider: false
+                                entity_match_gauge: false
+                                entity_match_slider_start: true
+                                entity_match_slider_end: true
+                                _mode: slider
+                                _vertical: false
+                                _slider_mode: brightness
+                                gauge:
+                                  sub_meter:
+                                    show_sub_meter: true
+                                  range:
+                                    enabled: true
+                                slider_track:
+                                  bar_border_radius: 0
+                                  bar_thickness: 5
+                                  gap: 1
+                                animation:
+                                  geo_array:
+                                    animation_axis: col
+                                    grid:
+                                      num_cols: 3
+                                      num_rows: 1
+                                card:
+                                  border:
+                                    left:
+                                      size: 86
+                                    top:
+                                      size: 5
+                                      right_radius: 0
+                                      left_radius: 30
+                                    bottom:
+                                      size: 5
+                                      right_radius: 0
+                                      left_radius: 30
+                                    right:
+                                      size: 25
+                                  height: "50"
+                                  width: "290"
+                                  blink:
+                                    state_on:
+                                      blink_delay: 2
+                                      blink_seconds: 5
+                                    state_off:
+                                      blink_seconds: 15
+                                      blink_delay: 3
+                                  color:
+                                    background:
+                                      inactive: var(--lcars-alt-dark-gray)
+                                      unavailable: var(--lcars-alert-red)
+                                      active: var(--lcars-cornflower)
+                                label: Hallway
+                                text:
+                                  label:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    align: left
+                                    align_items: flex-end
+                                    justify: flex-end
+                                    padding:
+                                      bottom: 1
+                                  name:
+                                    font_size: "12"
+                                    font_weight: 400
+                                    padding:
+                                      bottom: 9
+                                      left: 20
+                                    justify: flex-start
+                                    align_items: flex-end
+                                _slider_step: 10
+                                animations:
+                                  ripple:
+                                    ripple_opacity: 0.1
+                                    ripple_color: var(--lcars-alert-white)
+                                entity: light.levds_dimmer_3c5d_light
+                              tap_action:
+                                action: toggle
+                              double_tap_action:
+                                action: none
+                              hold_action:
+                                action: none
+                              show_label: true
+                              show_advanced: true
+                              show_name: true
+                              name: 31-753
+                              show_state: false
+                        - type: horizontal-stack
+                          cards:
+                            - type: custom:cb-lcars-button-card
+                              primary: Movie Mode
+                              cblcars_card_type: cb-lcars-button-picard
+                              show_label: false
+                              tap_action:
+                                action: call-service
+                                service: scene.turn_on
+                                target:
+                                  entity_id: scene.movie_nightNight
+                              variables:
+                                icon:
+                                  size: "26"
+                                  color:
+                                    default: var(--lcars-beige)
+                                card:
+                                  width: "150"
+                                  height: "50"
+                                  border:
+                                    top:
+                                      size: 0
+                                    bottom:
+                                      size: 0
+                                    left:
+                                      size: 25
+                                    right:
+                                      size: 0
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.stack_selector
+                        state: stack_1
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards:
+                            - type: media-control
+                              card_mod:
+                                class: middle-left
+                              entity: media_player.living_room
+                            - type: media-control
+                              card_mod:
+                                class: middle-right
+                              entity: media_player.vlc_telnet
+                        - type: horizontal-stack
+                          cards:
+                            - type: tile
+                              card_mod:
+                                class: middle-left
+                              entity: media_player.vizio_tv_7459_television
+                              vertical: false
+                              features_position: bottom
+                            - type: tile
+                              card_mod:
+                                class: middle-right
+                              entity: switch.vizio_tv_7459_mute
+                              vertical: false
+                              features_position: bottom
+                        - type: entities
+                          card_mod:
+                            class: middle-contained
+                          entities:
+                            - entity: media_player.living_room
+                              secondary_info: none
+                            - entity: number.living_room_balance
+                            - entity: number.living_room_treble
+                            - entity: number.living_room_bass
+                            - entity: switch.living_room_loudness
+                          state_color: true
+                          grid_options:
+                            columns: full
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.stack_selector
+                        state: stack_3
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: grid
+                          square: true
+                          cards:
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:html-card
+                                  card_mod:
+                                    class: header-left
+                                  content: Evoirmental Controls
+                                - type: custom:thermostat-dark-card
+                                  card_mod:
+                                    class: middle-left
+                                  entity: climate.living_room
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:html-card
+                                  card_mod:
+                                    class: footer-right
+                                  content: 31-615
+                                - type: horizontal-stack
+                                  cards:
+                                    - type: vertical-stack
+                                      cards:
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: header-left
+                                          entity: >-
+                                            sensor.astroweather_backyard_2m_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Outside
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: middle-left
+                                          entity: sensor.living_room_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Living Rm
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: footer-left
+                                          entity: sensor.h5075_6d12_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Kitchen
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: header-left
+                                          entity: sensor.h5075_3fe1_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: M Bed
+                                          icon_type: none
+                                    - type: vertical-stack
+                                      cards:
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: header-right
+                                          entity: sensor.h5075_3558_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Max Bed
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: middle-right
+                                          entity: sensor.h5075_d878_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Vienna Bed
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: footer-right
+                                          entity: sensor.h5075_584f_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: M Bath
+                                          icon_type: none
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: header-right
+                                          entity: sensor.h5075_e719_temperature
+                                          primary_info: state
+                                          secondary_info: name
+                                          name: Basement
+                                          icon_type: none
+                          columns: 2
+                  - type: conditional
+                    conditions:
+                      - entity: input_select.stack_selector
+                        state: stack_4
+                    card:
+                      type: vertical-stack
+                      cards:
+                        - type: horizontal-stack
+                          cards:
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:html-card
+                                  card_mod:
+                                    class: header-left
+                                  content: Local Weather
+                                - type: custom:weather-radar-card
+                                  card_mod:
+                                    class: middle-left
+                                  static_map: false
+                                  show_marker: true
+                                  show_scale: true
+                                  show_zoom: true
+                                  show_playback: true
+                                  show_range: true
+                                  show_recenter: true
+                                  square_map: true
+                                  extra_labels: true
+                                  map_style: Dark
+                                  zoom_level: 7
+                                  data_source: RainViewer-TWC
+                                - type: vertical-stack
+                                  cards:
+                                    - type: horizontal-stack
+                                      cards:
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: middle-left
+                                          entity: sensor.astroweather_backyard_fog_area
+                                          name: Fog
+                                          fill_container: false
+                                          primary_info: name
+                                          secondary_info: state
+                                          layout: horizontal
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: middle-right
+                                          entity: >-
+                                            sensor.astroweather_backyard_precipitation_amount
+                                          name: Precip
+                                    - type: horizontal-stack
+                                      cards:
+                                        - type: custom:mushroom-entity-card
+                                          card_mod:
+                                            class: middle-contained
+                                          entity: sensor.astroweather_backyard_cloud_cover
+                                          name: Cloudy
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:weather-chart-card
+                                  card_mod:
+                                    class: middle-right
+                                  entity: weather.forecast_home
+                                  show_main: true
+                                  show_temperature: true
+                                  show_current_condition: true
+                                  show_attributes: true
+                                  show_time: false
+                                  show_time_seconds: false
+                                  show_day: true
+                                  show_date: false
+                                  show_humidity: true
+                                  show_pressure: true
+                                  show_wind_direction: true
+                                  show_wind_speed: true
+                                  show_sun: true
+                                  show_feels_like: false
+                                  show_dew_point: true
+                                  show_wind_gust_speed: false
+                                  show_visibility: false
+                                  show_last_changed: true
+                                  use_12hour_format: false
+                                  icons_size: 25
+                                  animated_icons: false
+                                  icon_style: style1
+                                  autoscroll: false
+                                  forecast:
+                                    precipitation_type: rainfall
+                                    show_probability: true
+                                    labels_font_size: "11"
+                                    precip_bar_size: "100"
+                                    style: style2
+                                    show_wind_forecast: true
+                                    condition_icons: true
+                                    round_temp: false
+                                    type: daily
+                                    number_of_forecasts: "0"
+                                    disable_animation: false
+                                  units:
+                                    speed: ""
+                                - type: custom:background-graph-entities
+                                  entities:
+                                    - entity: >-
+                                        sensor.astroweather_backyard_10m_wind_speed
+                                      name: Wind speed
+                                      overwrite_graph_appearance: true
+                                      color_thresholds:
+                                        - value: 5
+                                          color: "#2ce03c"
+                                        - value: 10
+                                          color: "#abe624"
+                                        - value: 15
+                                          color: "#e7f520"
+                                        - value: 20
+                                          color: "#e88d29"
+                                        - value: 25
+                                          color: "#f26c25"
+                                        - value: 30
+                                          color: "#ff3a0b"
+                                        - value: 35
+                                          color: "#f02323"
+                                      line_opacity: 0.625
+                                      icon_color: "#1a1616"
+                                  hours_to_show: 24
+                                  line_length: long
+                                  curve: linear
+                                  line_color: "#f0e311"
+                                  update_interval: 60
+                                  line_opacity: 0.45
+                                  line_glow: true
+                                  title: ""
+                                  tile_style: true
